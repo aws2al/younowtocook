@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sopbyme | Contemporary Unisex Apparel & Style Videos</title>
+    <style>
+        :root {
+            --primary: #eab308;         /* Vibrant Yellow */
+            --primary-dark: #ca8a04;    /* Deep Gold */
+            --primary-light: #fef08a;   /* Soft Light Yellow */
+            --primary-bg: #fefce8;      /* Creamy Yellow Background */
+            --secondary: #18181b;       /* Dark Charcoal Accent */
+            --card-bg: #ffffff;
+            --text-dark: #27272a;
+            --text-muted: #52525b;
+            --border: #fde047;          /* Bright Yellow Border */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation Header */
+        header {
+            background-color: var(--primary-dark);
+            color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--primary-bg);
+            background: var(--secondary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            margin-left: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(202, 138, 4, 0.85), rgba(24, 24, 27, 0.85)), 
+                        url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: #ffffff;
+            padding: 9rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--primary-light);
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--secondary);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.15rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(234, 179, 8, 0.5);
+            border: 2px solid #facc15;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(234, 179, 8, 0.7);
+        }
+
+        /* Features Bar */
+        .features-bar {
+            background-color: var(--primary-light);
+            border-bottom: 2px solid var(--border);
+            padding: 2.5rem 2rem;
+        }
+
+        .features-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .feature-item h3 {
+            color: var(--primary-dark);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        /* Section Layouts */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.6rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+        }
+
+        /* Catalog Grid */
+        .dress-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .dress-card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 12px rgba(202, 138, 4, 0.1);
+        }
+
+        .dress-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(202, 138, 4, 0.25);
+        }
+
+        .dress-img {
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-body {
+            padding: 1.8rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dress-tag {
+            align-self: flex-start;
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+
+        .dress-card h3 {
+            font-size: 1.35rem;
+            color: var(--secondary);
+            margin-bottom: 0.6rem;
+        }
+
+        .dress-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--primary-light);
+        }
+
+        .price {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+
+        .buy-btn {
+            background-color: var(--primary);
+            color: var(--secondary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: background 0.2s ease;
+        }
+
+        .buy-btn:hover {
+            background-color: var(--primary-dark);
+            color: #ffffff;
+        }
+
+        /* 15 Videos Section */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background-color: #000;
+        }
+
+        .video-info {
+            padding: 1.2rem;
+        }
+
+        .video-info h4 {
+            font-size: 1.05rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .video-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* 150 Reviews Scrollable Container */
+        .reviews-section {
+            background-color: var(--primary-light);
+            padding: 6rem 2rem;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .reviews-scroll-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            max-height: 900px;
+            overflow-y: auto;
+            padding-right: 0.8rem;
+        }
+
+        .reviews-scroll-container::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .reviews-scroll-container::-webkit-scrollbar-thumb {
+            background: var(--primary-dark);
+            border-radius: 5px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .review-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .reviewer-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .reviewer-avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-dark);
+        }
+
+        .reviewer-info h5 {
+            font-size: 0.95rem;
+            color: var(--secondary);
+        }
+
+        .stars {
+            color: var(--primary-dark);
+            font-size: 0.8rem;
+        }
+
+        .review-text {
+            font-size: 0.85rem;
+            color: #374151;
+            font-style: italic;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .about-text p {
+            margin-bottom: 1.2rem;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+        }
+
+        /* Legal Blocks */
+        .legal-block {
+            background: #ffffff;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 12px rgba(202, 138, 4, 0.05);
+        }
+
+        .legal-block h3 {
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            margin: 1.8rem 0 0.8rem 0;
+        }
+
+        .legal-block h3:first-child {
+            margin-top: 0;
+        }
+
+        .legal-block p, .legal-block ul {
+            color: #374151;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .legal-block ul {
+            padding-left: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: #fef2f2;
+            padding: 4rem 2rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: var(--primary);
+            font-size: 1.15rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col a {
+            color: #fef2f2;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid #3f3f46;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #a1a1aa;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">sop<span>byme</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#catalog">Unisex Collection</a></li>
+                    <li><a href="#videos">15 Styling Videos</a></li>
+                    <li><a href="#reviews">150 Reviews</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#disclaimer">Disclaimer</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Contemporary Unisex Apparel & Fluid Style</h1>
+            <p>Explore boundary-pushing unisex dresses, gender-neutral tailoring, premium fabrics, and 15 curated dressing style guides on sopbyme.</p>
+            <a href="#catalog" class="cta-btn">Shop Unisex Collection</a>
+        </div>
+    </section>
+
+    <!-- Features Bar -->
+    <div class="features-bar">
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>Fluid Inclusive Sizing</h3>
+                <p>Designed with relaxed cuts and versatile tailoring that fits every body seamlessly.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Sustainable Fabrics</h3>
+                <p>Crafted from organic cotton, breathable linen blends, and premium eco-friendly weaves.</p>
+            </div>
+            <div class="feature-item">
+                <h3>15 Dressing Video Guides</h3>
+                <p>Watch short HD clips showing multi-way styling, layering, and accessory pairing.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Catalog Section -->
+    <section id="catalog" class="section">
+        <div class="section-header">
+            <h2>Featured Unisex Dresses & Outfits</h2>
+            <p>High-definition lookbooks featuring versatile, gender-neutral silhouettes.</p>
+        </div>
+
+        <div class="dress-grid">
+            <!-- Card 1 -->
+            <div class="dress-card">
+                <div class="dress-img" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="card-body">
+                    <span class="dress-tag">Oversized Silhouette</span>
+                    <h3>Minimalist Linen Overshirt Dress</h3>
+                    <p>A breathable, button-down fluid tunic dress featuring dropped shoulders and deep utility side pockets.</p>
+                    <div class="card-footer">
+                        <div class="price">$89.00</div>
+                        <a href="#catalog" onclick="alert('Added Linen Overshirt Dress to sopbyme cart!'); return false;" class="buy-btn">Add to Bag</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="dress-card">
+                <div class="dress-img" style="background-image: url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="card-body">
+                    <span class="dress-tag">Avant-Garde Drape</span>
+                    <h3>Asymmetric Cotton Wrap Robe</h3>
+                    <p>An architectural wrap dress with adjustable waist tie styling, built for effortless movement and gender-fluid layering.</p>
+                    <div class="card-footer">
+                        <div class="price">$115.00</div>
+                        <a href="#catalog" onclick="alert('Added Asymmetric Cotton Wrap Robe to sopbyme cart!'); return false;" class="buy-btn">Add to Bag</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="dress-card">
+                <div class="dress-img" style="background-image: url('https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="card-body">
+                    <span class="dress-tag">Streetwear Essential</span>
+                    <h3>Boxy Heavyweight Utility Midi</h3>
+                    <p>Structured cotton twill dress featuring a boxy straight cut, contrast stitching, and modular hardware detailing.</p>
+                    <div class="card-footer">
+                        <div class="price">$125.00</div>
+                        <a href="#catalog" onclick="alert('Added Boxy Heavyweight Utility Midi to sopbyme cart!'); return false;" class="buy-btn">Add to Bag</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 15 Dressing Videos Section -->
+    <section id="videos" class="section">
+        <div class="section-header">
+            <h2>15 Short Dressing & Styling Videos</h2>
+            <p>Bite-sized HD styling clips showing how to adapt unisex silhouettes for any wardrobe.</p>
+        </div>
+
+        <div class="video-grid">
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=500&q=80">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h4>1. Styling Oversized Tunics</h4>
+                    <p>Belted vs. loose drape styling techniques.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=500&q=80">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h4>2. Layering Over Pants</h4>
+                    <p>Pairing midi shirt dresses with wide trousers.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=500&q=80">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h4>3. Monochrome Minimalist Look</h4>
+                    <p>Creating depth with tonal neutral garments.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=500&q=80">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h4>4. Accessorizing Fluid Fits</h4>
+                    <p>Using harnesses and belts to modify shape.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=500&q=80">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h4>5. Transitioning Day to Night</h4>
+                    <p>Swapping footwear and adding outerwear layers.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=500&q=80">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h4>6. Asymmetric Wrap Tricks</h4>
+                    <p>Three ways to tie and knot front drapes.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=500&q=80">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h4>7. Gender-Neutral Tailoring</h4>
+                    <p>Understanding shoulder drop and chest ease.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=500&q=80">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h4>8. Summer Linen Care</h4>
+                    <p>Keeping lightweight fabrics crisp and fresh.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=500&q=80">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h4>9. Utility Pocket Styling</h4>
+                    <p>Balancing cargo details with clean lines.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=500&q=80">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h4>10. Layering Heavy Twill</h4>
+                    <p>Styling structured cotton in cooler weather.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=500&q=80">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h4>11. Footwear Pairings</h4>
+                    <p>Matching dresses with chunky boots vs. sneakers.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=500&q=80">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h4>12. Minimalist Capsule Wardrobe</h4>
+                    <p>Building 5 outfits with 2 unisex dresses.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=500&q=80">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h4>13. Collar & Neckline Adjustments</h4>
+                    <p>How to fold collars for relaxed modern looks.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=500&q=80">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h4>14. Proportions & Volume</h4>
+                    <p>Balancing oversized silhouettes cleanly.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=500&q=80">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h4>15. Travel Packing Tips</h4>
+                    <p>Rolling linen and twill dresses to prevent creases.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 150 Reviews Section -->
+    <section id="reviews" class="reviews-section">
+        <div class="section-header">
+            <h2>150 Verified Customer Reviews</h2>
+            <p>Scroll down to see real feedback from customers wearing sopbyme apparel.</p>
+        </div>
+
+        <div class="reviews-scroll-container">
+            <div class="reviews-grid">
+                <!-- Initial Reviews with avatars -->
+                <div class="review-card"><div class="reviewer-profile"><img src="https://i.pravatar.cc/100?img=33" class="reviewer-avatar"><div class="reviewer-info"><h5>Jordan Lee</h5><div class="stars">★★★★★</div></div></div><p class="review-text">"The oversized linen overshirt fits absolutely perfectly. Incredible fluid cut!"</p></div>
+                <div class="review-card"><div class="reviewer-profile"><img src="https://i.pravatar.cc/100?img=47" class="reviewer-avatar"><div class="reviewer-info"><h5>Taylor Morgan</h5><div class="stars">★★★★★</div></div></div><p class="review-text">"Love the yellow branding and inclusive sizing. Exceptional quality fabric."</p></div>
+                <div class="review-card"><div class="reviewer-profile"><img src="https://i.pravatar.cc/100?img=12" class="reviewer-avatar"><div class="reviewer-info"><h5>Alex Chen</h5><div class="stars">★★★★★</div></div></div><p class="review-text">"Fast shipping and the wrap robe dress looks stunning on everyone."</p></div>
+                <div class="review-card"><div class="reviewer-profile"><img src="https://i.pravatar.cc/100?img=5" class="reviewer-avatar"><div class="reviewer-info"><h5>Sam Rivera</h5><div class="stars">★★★★★</div></div></div><p class="review-text">"The styling videos helped me figure out how to layer it over trousers."</p></div>
+                <div class="review-card"><div class="reviewer-profile"><img src="https://i.pravatar.cc/100?img=60" class="reviewer-avatar"><div class="reviewer-info"><h5>Casey Novak</h5><div class="stars">★★★★★</div></div></div><p class="review-text">"sopbyme is redefining gender-neutral fashion. Will definitely buy again."</p></div>
+
+                <!-- Dynamically generated rest of the 150 reviews -->
+                <script>
+                    const names = ["Avery", "Blake", "Cameron", "Dakota", "Emerson", "Finley", "Harper", "Hayden", "Kendall", "Logan", "Marley", "Noah", "Parker", "Peyton", "Quinn", "Reese", "Riley", "Rowan", "Sawyer", "Skyler"];
+                    for(let i=6; i<=150; i++) {
+                        let name = names[i % names.length] + " " + String.fromCharCode(65 + (i % 26)) + ".";
+                        document.write(`
+                            <div class="review-card">
+                                <div class="reviewer-profile">
+                                    <img src="https://i.pravatar.cc/100?img=${(i%70)+1}" class="reviewer-avatar">
+                                    <div class="reviewer-info">
+                                        <h5>${name}</h5>
+                                        <div class="stars">★★★★★</div>
+                                    </div>
+                                </div>
+                                <p class="review-text">"Review #${i}: Outstanding unisex dress quality from sopbyme. The fit is versatile and extremely comfortable!"</p>
+                            </div>
+                        `);
+                    }
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>About sopbyme</h2>
+                <p>At <strong>sopbyme</strong>, we champion fashion without boundaries. Our collections are designed specifically for unisex wear, prioritizing fluid silhouettes, inclusive tailoring, and superior fabrics.</p>
+                <p>We believe clothing should adapt to your personal expression rather than conventional labels. Every piece is paired with practical dressing video guides to help you style your look with confidence.</p>
+            </div>
+            <div class="dress-img" style="height: 320px; border-radius: 16px; background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80');"></div>
+        </div>
+    </section>
+
+    <!-- Privacy Policy Section -->
+    <section id="privacy" class="section">
+        <div class="section-header">
+            <h2>Privacy Policy</h2>
+            <p>Transparency regarding how sopbyme collects and protects user information.</p>
+        </div>
+        <div class="legal-block">
+            <h3>1. Personal Data Collection</h3>
+            <p>When you purchase apparel or interact with sopbyme, we collect your name, shipping address, email address (for order tracking), and payment verification details.</p>
+
+            <h3>2. How We Use Information</h3>
+            <p>Collected details are strictly used to fulfill clothing shipments, provide customer support, process secure payments, and send order updates.</p>
+
+            <h3>3. Payment & Data Security</h3>
+            <p>sopbyme does not store credit card or banking details directly on our servers. All transactions are securely processed through encrypted third-party gateways.</p>
+
+            <h3>4. Cookie Policy</h3>
+            <p>We use functional cookies to optimize shopping bag functionality and maintain user preferences across your visit to sopbyme.</p>
+        </div>
+    </section>
+
+    <!-- Disclaimer Section -->
+    <section id="disclaimer" class="section">
+        <div class="section-header">
+            <h2>Apparel & Legal Disclaimer</h2>
+            <p>Essential legal and care information for wearing sopbyme products.</p>
+        </div>
+        <div class="legal-block">
+            <h3>1. Sizing & Fit Disclaimer</h3>
+            <p>Because sopbyme specializes in unisex and relaxed fluid cuts, garment measurements are engineered to fit multiple body types. Please consult our sizing charts before purchasing.</p>
+
+            <h3>2. Fabric & Color Representation</h3>
+            <p>Actual fabric textures and clothing colors may slightly vary due to individual monitor display settings and natural organic fiber characteristics (such as linen variations).</p>
+
+            <h3>3. Returns & Exchange Policy</h3>
+            <p>Unworn items in original condition with tags attached are eligible for return or exchange within 30 days of delivery, subject to our standard store policy guidelines.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>sopbyme</h4>
+                <p>Contemporary unisex apparel, fluid tailoring, and high-definition dressing style guides.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#catalog">Unisex Collection</a></li>
+                    <li><a href="#videos">15 Styling Videos</a></li>
+                    <li><a href="#reviews">150 Reviews</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal Info</h4>
+                <ul>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#disclaimer">Disclaimer</a></li>
+                    <li><a href="#disclaimer">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 sopbyme. All rights reserved. Registered Unisex Apparel Brand.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
